@@ -23,15 +23,11 @@ export default function ProjectForm({ onClose }) {
   const [modalMessage, setModalMessage] = useState("");
 
   useEffect(() => {
-    const fetchClients = async () => {
-      const token = localStorage.getItem("jwt");
-
-      if (!token) {
-        return;
-      }
+    async function fetchData() {
+      let token = localStorage.getItem("jwt");
 
       try {
-        const response = await fetch(
+        const clientsResponse = await fetch(
           "https://bildy-rpmaya.koyeb.app/api/client",
           {
             headers: {
@@ -39,19 +35,31 @@ export default function ProjectForm({ onClose }) {
             },
           }
         );
-
-        if (!response.ok) {
-          throw new Error("Error fetching clients");
+        if (!clientsResponse.ok) {
+          throw new Error("Failed to fetch clients");
         }
+        const clientsData = await clientsResponse.json();
+        setClients(clientsData);
 
-        const data = await response.json();
-        setClients(data);
+        const projectsResponse = await fetch(
+          "https://bildy-rpmaya.koyeb.app/api/project",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        if (!projectsResponse.ok) {
+          throw new Error("Failed to fetch projects");
+        }
+        const projectsData = await projectsResponse.json();
+        setProjects(projectsData);
       } catch (err) {
-        console.error(err.message || "Error loading clients");
+        setError(err.message || "Error fetching clients and projects");
       }
-    };
+    }
 
-    fetchClients();
+    fetchData();
   }, []);
 
   const handleChange = (e) => {

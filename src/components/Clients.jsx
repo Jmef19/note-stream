@@ -88,6 +88,7 @@ function Clients() {
     const token = localStorage.getItem("jwt");
 
     if (!token) {
+      router.push("/login");
       return;
     }
 
@@ -132,7 +133,10 @@ function Clients() {
           ) : (
             <ul className="space-y-2">
               {clients.map((client) => (
-                <li key={client._id || client.id} className="flex items-center space-x-4">
+                <li
+                  key={client._id || client.id}
+                  className="flex items-center space-x-4"
+                >
                   <button
                     className="text-blue-500 hover:underline"
                     onClick={() => handleClientClick(client._id || client.id)}
