@@ -1,11 +1,12 @@
-"use client";
+'use client'
 
 import { useState } from "react";
-import LateralMenu from "@/components/LateralMenu";
-import Header from "@/components/Header";
-import Clients from "@/components/Clients";
 
-export default function Home() {
+import Header from "@/components/Header";
+import LateralMenu from "@/components/LateralMenu";
+import Projects from "@/components/Projects";
+
+export default function ProjectsPage() {
   const [menuOpen, setMenuOpen] = useState(true);
 
   return (
@@ -17,7 +18,7 @@ export default function Home() {
         } flex-1`}
       >
         <Header />
-        <Clients />
+        <Projects />
       </div>
     </div>
   );

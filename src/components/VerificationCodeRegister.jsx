@@ -1,5 +1,8 @@
+"use client";
+
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
+import { useRouter } from "next/navigation";
 
 const VerificationCodeRegister = ({ email, onClose }) => {
   const maskedEmail = email.replace(/(\w{3})[\w.-]+@/, (match, firstPart) => {
@@ -23,13 +26,54 @@ const VerificationCodeRegister = ({ email, onClose }) => {
     }
   };
 
-  const handleVerify = () => {
+  const router = useRouter();
+
+  const handleVerify = async () => {
     const verificationCode = code.join("");
-    if (verificationCode.length === 6) {
-      console.log("Verification code entered:", verificationCode);
-      // Call your verification logic here
-    } else {
-      alert("Verification Error. Please enter a complete 6-digit code.");
+    let token = localStorage.getItem("jwt");
+
+    if (!token) {
+      setError("Authentication token missing. Please log in again.");
+      return;
+    }
+
+    if (verificationCode.length !== 6) {
+      setError("Please enter a valid 6-digit code.");
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        "https://bildy-rpmaya.koyeb.app/api/user/validation",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ code: verificationCode }),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error response:", errorData);
+        if (response.status === 401) {
+          setError(
+            "Unauthorized. Your session may have expired. Please log in again."
+          );
+        } else if (response.status === 422) {
+          setError("Invalid code. Please try again.");
+        } else {
+          setError(errorData.message || "An unexpected error occurred.");
+        }
+        return;
+      }
+
+      router.push("/login");
+    } catch (error) {
+      console.error("Network or server error:", error);
+      setError("A network error occurred. Please try again later.");
     }
   };
 
@@ -49,6 +93,7 @@ const VerificationCodeRegister = ({ email, onClose }) => {
         <button
           onClick={onClose}
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+          aria-label="Close"
         >
           &#x2715;
         </button>

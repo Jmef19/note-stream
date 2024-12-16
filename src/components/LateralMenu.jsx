@@ -1,24 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
+import PropTypes from "prop-types";
 import {
   FaArrowLeft,
   FaArrowRight,
-  FaTruck,
   FaBriefcase,
   FaFileSignature,
   FaGithub,
 } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 
-const LateralMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
-  };
-
+const LateralMenu = ({ isOpen, onToggle }) => {
   return (
     <div className="relative">
       <div
@@ -41,7 +35,7 @@ const LateralMenu = () => {
             <ul className="space-y-4">
               <li>
                 <Link
-                  href="/clients"
+                  href="/"
                   className="flex items-center justify-start px-6 py-3 hover:bg-gray-700 rounded-lg transition duration-200"
                 >
                   <FaPerson />
@@ -66,15 +60,6 @@ const LateralMenu = () => {
                   <p className="px-2">Delivery Notes</p>
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/suppliers"
-                  className="flex items-center justify-start px-6 py-3 hover:bg-gray-700 rounded-lg transition duration-200"
-                >
-                  <FaTruck />
-                  <p className="px-2">Suppliers</p>
-                </Link>
-              </li>
             </ul>
           </nav>
           <div>
@@ -90,7 +75,7 @@ const LateralMenu = () => {
       </div>
 
       <button
-        onClick={toggleMenu}
+        onClick={onToggle}
         className={`
           fixed top-8 z-50
           p-2 sm:p-3 
@@ -111,3 +96,8 @@ const LateralMenu = () => {
 };
 
 export default LateralMenu;
+
+LateralMenu.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onToggle: PropTypes.func.isRequired,
+};
