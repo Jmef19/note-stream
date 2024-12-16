@@ -110,14 +110,14 @@ export default function ClientForm({ onClose }) {
     <>
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-lg shadow-lg max-w-xl mx-auto space-y-6"
+        className="bg-white p-6 rounded-lg shadow-lg max-w-xl mx-auto space-y-6 mt-16"
       >
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
+          className="absolute top-1/5 right-2/4 text-gray-500 hover:text-gray-800"
         >
-          &times;
+          &#x2715;
         </button>
 
         {error && <div className="text-red-500 font-medium">{error}</div>}

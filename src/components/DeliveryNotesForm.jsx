@@ -127,17 +127,18 @@ export default function DeliveryNotesForm({ onClose }) {
     <>
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-lg shadow-lg max-w-xl mx-auto space-y-6"
+        className="bg-white p-8 rounded-lg shadow-lg max-w-2xl mx-auto space-y-6 mt-12"
       >
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
+          className="absolute top-1/5 right-2/4 text-gray-500 hover:text-gray-800 focus:outline-none"
+          aria-label="Close form"
         >
-          &times;
+          &#x2715;
         </button>
 
-        {error && <div className="text-red-500 font-medium">{error}</div>}
+        {error && <div className="text-red-500 font-semibold">{error}</div>}
 
         <div>
           <label
@@ -151,7 +152,7 @@ export default function DeliveryNotesForm({ onClose }) {
             name="clientId"
             value={formData.clientId}
             onChange={handleChange}
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             required
           >
             <option value="">Select a client</option>
@@ -175,7 +176,7 @@ export default function DeliveryNotesForm({ onClose }) {
             name="projectId"
             value={formData.projectId}
             onChange={handleChange}
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             required
           >
             <option value="">Select a project</option>
@@ -199,7 +200,7 @@ export default function DeliveryNotesForm({ onClose }) {
             name="format"
             value={formData.format}
             onChange={handleChange}
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             required
           >
             <option value="material">Material</option>
@@ -221,7 +222,7 @@ export default function DeliveryNotesForm({ onClose }) {
               name="material"
               value={formData.material}
               onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Enter material type"
               required
             />
@@ -242,7 +243,7 @@ export default function DeliveryNotesForm({ onClose }) {
               name="hours"
               value={formData.hours}
               onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Enter hours worked"
               required
             />
@@ -261,7 +262,7 @@ export default function DeliveryNotesForm({ onClose }) {
             name="description"
             value={formData.description}
             onChange={handleChange}
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             placeholder="Enter description"
             required
           />
@@ -280,7 +281,7 @@ export default function DeliveryNotesForm({ onClose }) {
             name="workdate"
             value={formData.workdate}
             onChange={handleChange}
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             placeholder="MM/DD/YYYY"
             required
           />
@@ -289,7 +290,7 @@ export default function DeliveryNotesForm({ onClose }) {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            className="px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
           >
             Submit
           </button>

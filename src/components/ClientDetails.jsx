@@ -70,7 +70,7 @@ function ClientDetails({ clientId, onClose }) {
             {client.address.street} {client.address.number}
           </p>
           <p>
-            {client.address.city}, {client.address.province}
+            {client.address.city}, {client.address.province},{" "}
             {client.address.postal}
           </p>
         </div>

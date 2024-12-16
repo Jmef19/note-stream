@@ -5,9 +5,11 @@ import { FaFileDownload } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import DeliveryNotesForm from "./DeliveryNotesForm";
+import DeliveryNotesDetails from "./DeliveryNotesDetails";
 
 function DeliveryNotes() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dNoteDetails, setDNoteDetails] = useState(false);
   const [DNotes, setDNotes] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -85,6 +87,15 @@ function DeliveryNotes() {
     setMenuOpen(false);
   };
 
+  const handleDeliveryNotesDetails = (id) => {
+    console.log("hello")
+    setDNoteDetails(id);
+  };
+
+  const closeDeliveryNotesDetails = () => {
+    setDNoteDetails(false);
+  };
+
   const downloadDNote = async (dnoteId) => {
     const token = localStorage.getItem("jwt");
     if (!token) return;
@@ -136,7 +147,7 @@ function DeliveryNotes() {
                 <li key={DNote._id} className="flex items-center space-x-4">
                   <button
                     className="text-blue-500 hover:underline"
-                    onClick={() => openModal("details", DNote._id)}
+                    onClick={() => handleDeliveryNotesDetails(DNote._id)}
                   >
                     {DNote.description}
                   </button>
@@ -168,6 +179,14 @@ function DeliveryNotes() {
         {menuOpen && (
           <div className="absolute top-0 left-0 right-0 z-10">
             <DeliveryNotesForm onClose={handleCloseAdding} />
+          </div>
+        )}
+        {dNoteDetails && (
+          <div className="text-center">
+            <DeliveryNotesDetails
+              onClose={closeDeliveryNotesDetails}
+              deliveryNoteId={dNoteDetails}
+            />
           </div>
         )}
       </div>
