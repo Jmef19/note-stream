@@ -58,7 +58,6 @@ const Login = () => {
           console.log("User logged in successfully:", responseData.user);
           localStorage.setItem("jwt", responseData.token);
         }
-        alert("Login successful. Token saved to localStorage.");
         router.push("/");
       } else {
         if (response.status === 401) {

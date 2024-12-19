@@ -72,7 +72,7 @@ const VerificationCodeRegister = ({ email, onClose }) => {
         }
         return;
       }
-
+      localStorage.removeItem("rtoken");
       router.push("/login");
     } catch (error) {
       console.error("Network or server error:", error);
