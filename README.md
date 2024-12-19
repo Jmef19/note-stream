@@ -46,6 +46,11 @@ API Base URL: https://bildy-rpmaya.koyeb.app/api-docs/
 └── /styles
 ```
 
+## Deployment
+
+This application is deployed on Vercel. You can access it using the following link:  
+[Vercel Deployment](https://note-stream.vercel.app/)
+
 ## Authentication Workflow
 
 1. User registration
