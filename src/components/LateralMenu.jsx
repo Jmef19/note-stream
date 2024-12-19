@@ -21,13 +21,15 @@ const LateralMenu = ({ isOpen, onToggle }) => {
         } transition-transform duration-300 w-64 flex flex-col`}
       >
         <div className="flex p-6 border-b border-gray-700 items-center justify-between">
-          <a href="/" className="block">
-            <img
-              src="/NoteStream.png"
-              alt="NoteStream Logo"
-              className="w-16 h-16 object-contain rounded-full border-2 border-white shadow-lg"
-            />
-          </a>
+          <div className="block">
+            <Link href="/">
+              <img
+                src="/NoteStream.png"
+                alt="NoteStream Logo"
+                className="w-16 h-16 object-contain rounded-full border-2 border-white shadow-lg"
+              />
+            </Link>
+          </div>
           <h1 className="text-xl font-bold px-3">NoteStream</h1>
         </div>
         <div className="flex flex-col justify-between flex-grow">

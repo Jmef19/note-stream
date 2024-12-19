@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const TermsAndConditionsPage = () => {
@@ -13,7 +14,7 @@ const TermsAndConditionsPage = () => {
             <strong>Last updated:</strong> December 2024
           </p>
           <p>
-            By accessing and using <strong>NoteStream</strong> (the "Service"),
+            By accessing and using <strong>NoteStream</strong> (the 'Service'),
             you agree to comply with and be bound by these Terms and Conditions.
             If you do not agree to these terms, please do not use the Service.
           </p>
@@ -62,7 +63,7 @@ const TermsAndConditionsPage = () => {
             and should not be considered a fully functional or secure service.
           </p>
           <p>
-            <strong>No Warranty:</strong> The service is provided "as is"
+            <strong>No Warranty:</strong> The service is provided 'as is'
             without any warranty of any kind. We do not guarantee that the
             Service will be error-free or uninterrupted.
           </p>
@@ -106,7 +107,7 @@ const TermsAndConditionsPage = () => {
           <p>
             <strong>NoteStream</strong> reserves the right to modify these Terms
             and Conditions at any time. If changes are made, the updated version
-            will be posted here with the "Last updated" date changed. By
+            will be posted here with the 'Last updated' date changed. By
             continuing to use the Service after changes are posted, you accept
             the new Terms.
           </p>
@@ -139,9 +140,11 @@ const TermsAndConditionsPage = () => {
         </div>
 
         <div className="mt-8 text-center">
-          <a href="/" className="text-teal-500 hover:underline font-semibold">
-            Back to Home
-          </a>
+          <Link href="/">
+            <p className="text-teal-500 hover:underline font-semibold">
+              Back to Home
+            </p>
+          </Link>
         </div>
       </div>
     </div>
