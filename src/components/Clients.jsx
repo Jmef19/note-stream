@@ -19,6 +19,7 @@ function Clients() {
     const token = localStorage.getItem("jwt");
     if (!token) {
       router.push("/login");
+      return;
     }
 
     const handleStorageChange = () => {

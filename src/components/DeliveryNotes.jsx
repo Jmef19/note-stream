@@ -1,7 +1,6 @@
-import { FaPlusSquare } from "react-icons/fa";
+import { FaPlusSquare, FaFileDownload } from "react-icons/fa";
 import { IoReload } from "react-icons/io5";
 import { HiTrash } from "react-icons/hi";
-import { FaFileDownload } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import DeliveryNotesForm from "./DeliveryNotesForm";
@@ -10,7 +9,7 @@ import DeliveryNotesDetails from "./DeliveryNotesDetails";
 function DeliveryNotes() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dNoteDetails, setDNoteDetails] = useState(false);
-  const [DNotes, setDNotes] = useState([]);
+  const [dNotes, setDNotes] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
@@ -52,7 +51,7 @@ function DeliveryNotes() {
       const data = await response.json();
       setDNotes(data);
     } catch (error) {
-      console.error(error.message || "Failed to load deliveryNotes.");
+      console.error(error.message || "Failed to load delivery notes.");
     } finally {
       setLoading(false);
     }
@@ -88,7 +87,6 @@ function DeliveryNotes() {
   };
 
   const handleDeliveryNotesDetails = (id) => {
-    console.log("hello")
     setDNoteDetails(id);
   };
 
@@ -139,11 +137,11 @@ function DeliveryNotes() {
         <div className="border-2 border-gray-500 rounded-lg p-3">
           {loading ? (
             <p>Loading delivery notes...</p>
-          ) : DNotes.length === 0 ? (
+          ) : dNotes.length === 0 ? (
             <p>No delivery notes available.</p>
           ) : (
             <ul className="space-y-2">
-              {DNotes.map((DNote) => (
+              {dNotes.map((DNote) => (
                 <li key={DNote._id} className="flex items-center space-x-4">
                   <button
                     className="text-blue-500 hover:underline"
