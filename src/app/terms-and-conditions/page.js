@@ -14,9 +14,10 @@ const TermsAndConditionsPage = () => {
             <strong>Last updated:</strong> December 2024
           </p>
           <p>
-            By accessing and using <strong>NoteStream</strong> (the 'Service'),
-            you agree to comply with and be bound by these Terms and Conditions.
-            If you do not agree to these terms, please do not use the Service.
+            By accessing and using <strong>NoteStream</strong> (the
+            &apos;Service&apos;), you agree to comply with and be bound by
+            these Terms and Conditions. If you do not agree to these terms,
+            please do not use the Service.
           </p>
 
           <h2 className="text-2xl font-semibold mt-6">1. Service Overview</h2>
@@ -63,9 +64,9 @@ const TermsAndConditionsPage = () => {
             and should not be considered a fully functional or secure service.
           </p>
           <p>
-            <strong>No Warranty:</strong> The service is provided 'as is'
-            without any warranty of any kind. We do not guarantee that the
-            Service will be error-free or uninterrupted.
+            <strong>No Warranty:</strong> The service is provided &apos;as
+            is&apos; without any warranty of any kind. We do not guarantee that
+            the Service will be error-free or uninterrupted.
           </p>
 
           <h2 className="text-2xl font-semibold mt-6">
@@ -107,9 +108,9 @@ const TermsAndConditionsPage = () => {
           <p>
             <strong>NoteStream</strong> reserves the right to modify these Terms
             and Conditions at any time. If changes are made, the updated version
-            will be posted here with the 'Last updated' date changed. By
-            continuing to use the Service after changes are posted, you accept
-            the new Terms.
+            will be posted here with the &apos;Last updated&apos; date changed.
+            By continuing to use the Service after changes are posted, you
+            accept the new Terms.
           </p>
 
           <h2 className="text-2xl font-semibold mt-6">8. Governing Law</h2>
