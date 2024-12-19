@@ -69,9 +69,8 @@ const Register = () => {
           console.log("Server response:", responseData);
         } else {
           console.log("User registered successfully:", responseData.user);
-          localStorage.setItem("jwt", responseData.token);
+          localStorage.setItem("rtoken", responseData.token);
         }
-        alert("Registration successful. Token saved to localStorage.");
         setRegistrationSuccess(true);
       } else {
         if (responseData === "USER_EXISTS") {

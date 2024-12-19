@@ -5,11 +5,14 @@ import PropTypes from "prop-types";
 import { useRouter } from "next/navigation";
 
 const VerificationCodeRegister = ({ email, onClose }) => {
-  const maskedEmail = email.replace(/(\w{3})[\w.-]+@/, (match, firstPart) => {
-    const localPart = match.split("@")[0];
-    const numStars = localPart.length - 3;
-    return `${firstPart}${"*".repeat(numStars)}@`;
-  });
+  const maskedEmail = email.replace(
+    /([\w+.-]{3})[\w+.-]+@/,
+    (match, firstPart) => {
+      const localPart = match.split("@")[0];
+      const numStars = localPart.length - 3;
+      return `${firstPart}${"*".repeat(numStars)}@`;
+    }
+  );
 
   const [code, setCode] = useState(["", "", "", "", "", ""]);
   const inputsRef = useRef([]);
@@ -30,7 +33,7 @@ const VerificationCodeRegister = ({ email, onClose }) => {
 
   const handleVerify = async () => {
     const verificationCode = code.join("");
-    let token = localStorage.getItem("jwt");
+    let token = localStorage.getItem("rtoken");
 
     if (!token) {
       setError("Authentication token missing. Please log in again.");
