@@ -124,8 +124,8 @@ function DeliveryNotes() {
 
   return (
     <div className="flex justify-between p-5">
-      <div className="flex flex-col w-2/3">
-        <div className="flex items-center">
+      <div className="flex flex-col w-2/3 p-4">
+        <div className="flex items-center py-2">
           <h1 className="text-3xl font-bold">Delivery Notes</h1>
           <button
             className="h-8 ml-4 flex items-center justify-center"
